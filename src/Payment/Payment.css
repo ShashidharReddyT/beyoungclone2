@@ -1,0 +1,56 @@
+.navbarcart {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-bottom: 1px solid gray;
+    height: 80px;
+    align-items: center;
+}
+
+.beyoungglogo {
+    margin-left: 50px;
+
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.header-right {
+    padding: 15px 10px;
+    display: flex;
+    background: #f2f2f2;
+    /* width: 35%; */
+    font-size: 20px;
+    font-weight: 600;
+    color: #222;
+    text-transform: uppercase;
+    align-items: center;
+    gap: 5px;
+    margin-right: 150px;
+}
+
+@media (max-width: 380px) {
+    .navbarcart {
+        flex-direction: column;
+        /* Stack items vertically */
+        height: auto;
+        /* Adjust height as needed */
+    }
+
+    .beyoungglogo {
+        margin-left: 0;
+        /* Reset margin for smaller screens */
+        margin-bottom: 10px;
+        /* Add bottom margin for spacing */
+    }
+
+    .header-right {
+        flex-direction: column;
+        text-align: center;
+        margin-right: 0;
+        padding: 10px 0;
+    }
+}

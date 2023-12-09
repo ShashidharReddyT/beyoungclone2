@@ -1,0 +1,18 @@
+.bannersweater {
+    width: 100%;
+    margin-top: 117px;
+}
+
+.bannersweatersub {
+    width: 289px;
+    height: 389px;
+}
+
+.winterwearsub {
+    display: flex;
+    flex-direction: row;
+    margin-top: 20px;
+    margin-bottom: -120px;
+    gap: 10px;
+    margin-left: 153px;
+}

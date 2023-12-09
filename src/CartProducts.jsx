@@ -7,7 +7,6 @@ import {
     useUpdateCartNumbers,
 } from "./Context/CartNumberContext";
 
-import { Container, Flex, Box, Button, Text, propNames } from '@chakra-ui/react';
 
 const CartProduct = () => {
     const { isUserLoggedIn, token, updateResultData } = useAuth();
@@ -216,46 +215,53 @@ const CartProduct = () => {
     return (
         <div className="cart-items-container">
             {cartProductList && cartProductList.length === 0 ? (
-                <Flex style={{ flexDirection: "column", justifyContent: "center", alignItems: "center" }}>
-                    <img src='https://www.beyoung.in/desktop/images/checkout/EMPTY%20CARTORDER%20PAGE..png' alt="cartbag" style={{ width: '350px' }} className='cartproductimage' />
-                    <Text style={{ marginTop: '0', fontSize: '25px' }} className='nothingbag' >Nothing in the bag.</Text>
-                    <Link to='/'>
-                        <Button
+                <div style={{ textAlign: 'center' }}>
+                    <img
+                        src="https://www.beyoung.in/desktop/images/checkout/EMPTY%20CARTORDER%20PAGE..png"
+                        alt="cartbag"
+                        style={{ width: '350px' }}
+                        className="cartproductimage"
+                    />
+                    <p style={{ marginTop: '0', fontSize: '25px' }} className="nothingbag">
+                        Nothing in the bag.
+                    </p>
+                    <Link to="/">
+                        <button
                             style={{
                                 width: '300px',
                                 height: '2.5rem',
                                 fontWeight: 'bold',
                                 fontSize: '18px',
-
                                 color: 'white',
                                 backgroundColor: 'black',
                                 borderRadius: '10px',
                                 border: '1px solid rgb(66, 162, 162)',
                                 cursor: 'pointer',
                             }}
-                            className='buttoncartnothings'
+                            className="buttoncartnothings"
                         >
                             Continue Shopping
-                        </Button>
+                        </button>
                     </Link>
-                </Flex>
+                </div>
             ) : (
-                <ul className='cart-itemss'>
-                    <p className='cartitemsheading'>Your Cart Items</p>
+                <ul className="cart-itemss">
+                    <p className="cartitemsheading">Your Cart Items</p>
 
                     {cartProductList?.map((cartItem) => (
                         <div key={cartItem.product._id} className="cart-item-card">
                             <section className="cart-item-content">
                                 <div className="cart-item-img" onClick={() => handleProductClick(cartItem)}>
-
                                     <Link to={`/product/${cartItem.product._id}`}>
-                                        <img src={cartItem.product.displayImage} alt={cartItem.product.name} className='cartproductimge' />
+                                        <img
+                                            src={cartItem.product.displayImage}
+                                            alt={cartItem.product.name}
+                                            className="cartproductimge"
+                                        />
                                     </Link>
                                 </div>
-                                <div className="cart-item-details" >
-                                    <p>
-                                        {cartItem.product.name}
-                                    </p>
+                                <div className="cart-item-details">
+                                    <p>{cartItem.product.name}</p>
                                     <p>&#8377;{cartItem.product.price}</p>
                                     <div className="cart-item-qty">
                                         <label htmlFor="quantity">QTY:</label>
@@ -278,7 +284,7 @@ const CartProduct = () => {
                             <section className="cart-action-btns">
                                 <button
                                     onClick={() => removeFromCart(cartItem.product._id)}
-                                    style={{ borderRight: "1px solid #E6E6E6" }}
+                                    style={{ borderRight: '1px solid #E6E6E6' }}
                                 >
                                     Remove
                                 </button>

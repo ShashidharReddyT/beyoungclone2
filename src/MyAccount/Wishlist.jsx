@@ -8,7 +8,7 @@ import {
 import StarIcon from "@mui/icons-material/Star";
 import StarHalfIcon from "@mui/icons-material/StarHalf";
 import StarBorderIcon from "@mui/icons-material/StarBorder";
-import { Flex, Button, Text } from '@chakra-ui/react';
+
 
 const Wishlist = () => {
     const { isUserLoggedIn, token } = useAuth();
@@ -173,29 +173,7 @@ const Wishlist = () => {
                 {favProductList.length === 0 ? (
                     <div>
                         <p className='wishlist-heading'>Your wishlist is empty. Start adding products!</p>
-                        <Flex style={{ flexDirection: "column", justifyContent: "center", alignItems: "center" }}>
-                            <img src='https://www.beyoung.in/desktop/images/checkout/EMPTY%20CARTORDER%20PAGE..png' alt="cartbag" style={{ width: '350px' }} className='cartproductimage' />
-                            <Text style={{ marginTop: '0', fontSize: '25px' }} className='nothingbag' >Nothing in the bag.</Text>
-                            <Link to='/'>
-                                <Button
-                                    style={{
-                                        width: '300px',
-                                        height: '2.5rem',
-                                        fontWeight: 'bold',
-                                        fontSize: '18px',
 
-                                        color: 'white',
-                                        backgroundColor: 'black',
-                                        borderRadius: '10px',
-                                        border: '1px solid rgb(66, 162, 162)',
-                                        cursor: 'pointer',
-                                    }}
-                                    className='buttoncartnothings'
-                                >
-                                    Continue Shopping
-                                </Button>
-                            </Link>
-                        </Flex>
                     </div>
                 ) : (
                     <ul className="wishlist-items">

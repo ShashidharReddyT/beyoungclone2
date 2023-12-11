@@ -130,7 +130,7 @@
   border: 2px solid black;
 }
 
-@media (max-width: 380px) {
+@media (max-width: 440px) {
   .my-account-container {
     flex-direction: column;
     margin: 3rem 5%;

@@ -90,7 +90,7 @@
 }
 
 
-@media screen and (max-width: 380px) {
+@media screen and (max-width: 440px) {
   .big-saving-zone {
     padding: 0 10px;
     /* Adjust the padding as needed */
@@ -167,7 +167,7 @@
   }
 }
 
-@media screen and (max-width: 380px) {
+@media screen and (max-width: 440px) {
   .scolll {
     margin-top: 20px;
     /* Adjust margin for even smaller screens */

@@ -8,6 +8,7 @@ import {
 import StarIcon from "@mui/icons-material/Star";
 import StarHalfIcon from "@mui/icons-material/StarHalf";
 import StarBorderIcon from "@mui/icons-material/StarBorder";
+import { Flex, Button, Text } from '@chakra-ui/react';
 
 
 const Wishlist = () => {
@@ -15,7 +16,7 @@ const Wishlist = () => {
     const [favProductList, setFavProductList] = useState([]);
     const updateCartNumber = useUpdateCartNumbers();
     const [showLoginModal, setShowLoginModal] = useState(false);
-
+    const [showAddToCartMessage, setShowAddToCartMessage] = useState(false);
     useEffect(() => {
         const fetchFavProducts = async () => {
             if (!isUserLoggedIn) {
@@ -119,11 +120,17 @@ const Wishlist = () => {
 
             if (response.ok) {
                 console.log('Product added to cart successfully');
-                // Optionally, you can update the UI or show a success message
+                setShowAddToCartMessage(true); // Set state to show success message
+
                 const responseData = await response.json();
 
                 // Update the cart number using the correct count value
                 updateCartNumber(responseData.data.items.length);
+
+                // Hide the success message after 1500 milliseconds (1.5 seconds)
+                setTimeout(() => {
+                    setShowAddToCartMessage(false);
+                }, 1500);
             } else {
                 console.error('Failed to add product to cart');
                 // Optionally, you can handle different HTTP status codes here
@@ -173,7 +180,29 @@ const Wishlist = () => {
                 {favProductList.length === 0 ? (
                     <div>
                         <p className='wishlist-heading'>Your wishlist is empty. Start adding products!</p>
+                        <Flex style={{ flexDirection: "column", justifyContent: "center", alignItems: "center" }}>
+                            <img src='https://www.beyoung.in/desktop/images/checkout/EMPTY%20CARTORDER%20PAGE..png' alt="cartbag" style={{ width: '350px' }} className='cartproductimage' />
+                            <Text style={{ marginTop: '0', fontSize: '25px' }} className='nothingbag' >Nothing in the bag.</Text>
+                            <Link to='/'>
+                                <Button
+                                    style={{
+                                        width: '300px',
+                                        height: '2.5rem',
+                                        fontWeight: 'bold',
+                                        fontSize: '18px',
 
+                                        color: 'white',
+                                        backgroundColor: 'black',
+                                        borderRadius: '10px',
+                                        border: '1px solid rgb(66, 162, 162)',
+                                        cursor: 'pointer',
+                                    }}
+                                    className='buttoncartnothings'
+                                >
+                                    Continue Shopping
+                                </Button>
+                            </Link>
+                        </Flex>
                     </div>
                 ) : (
                     <ul className="wishlist-items">
@@ -198,6 +227,12 @@ const Wishlist = () => {
                             ))}
                         </div>
                     </ul>
+
+                )}
+                {showAddToCartMessage && (
+                    <div className="popup-modal">
+                        <p>Product added to cart successfully!</p>
+                    </div>
                 )}
             </div>
         </section>

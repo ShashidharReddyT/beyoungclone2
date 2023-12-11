@@ -59,7 +59,7 @@ const SearchPage = () => {
 
     return (
         <div className="men-container">
-            <section className="men-clothes">
+            <section className="men-clothessearch">
                 <p className="heading-mensearch">Search Results:</p>
                 <div className="for-shirts-pants">
                     {searchResults.length > 0 ? (
@@ -68,9 +68,9 @@ const SearchPage = () => {
                                 <figure>
                                     <img src={product.displayImage} alt={product.name} loading="lazy" />
                                 </figure>
-                                {/* <p className='headingsearch'>{product.name}</p> */}
+                                <p className='headingsearch'>{product.name}</p>
                                 <p className='headingsearch1'>{product.subCategory}</p>
-                                {/* <p className='headingsearch'>₹{product.price}</p> */}
+                                <p className='headingsearch'>₹{product.price}</p>
                             </div>
                         ))
                     ) : (

@@ -252,7 +252,7 @@ p.headaing-zone {
 }
 
 /* Add this media query for 380px width */
-@media screen and (max-width: 380px) {
+@media screen and (max-width: 440px) {
     /* Adjustments for 380px width */
 
     .cashback-swipper {
@@ -291,7 +291,7 @@ p.headaing-zone {
 }
 
 /* shirtimages */
-@media screen and (max-width: 380px) {
+@media screen and (max-width: 440px) {
     .shirt-image {
         flex-direction: row;
         align-items: center;
@@ -310,7 +310,7 @@ p.headaing-zone {
 
 /* .big-saving-zone */
 
-@media screen and (max-width: 380px) {
+@media screen and (max-width: 440px) {
     .big-saving-zone {
         padding: 0 10px;
         /* Adjust the padding as needed */
@@ -370,11 +370,11 @@ p.headaing-zone {
     }
 }
 
-@media screen and (max-width: 380px) {
+@media screen and (max-width: 440px) {
     .slide {
         margin-top: 120px;
         width: 106%;
-        margin-left: 2px;
+        margin-left: -9px;
     }
 
     .sliderimg {

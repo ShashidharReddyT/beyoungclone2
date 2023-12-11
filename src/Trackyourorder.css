@@ -102,6 +102,7 @@
     background-color: #fff;
     width: 75%;
     padding: 10px;
+    margin-bottom: 10px;
 }
 
 .tracking-order-details .order-checkbox .tracking-id button {
@@ -134,7 +135,7 @@
 
 
 /* Responsive CSS for 380px */
-@media only screen and (max-width: 380px) {
+@media only screen and (max-width: 440px) {
     .trackimage {
         margin-top: 120px;
         /* Adjust margin-top for smaller screens */
@@ -183,5 +184,4 @@
     /* Adjust font size for smaller screens */
     padding: 20px 0;
     /* Adjust padding for smaller screens */
-}
 }

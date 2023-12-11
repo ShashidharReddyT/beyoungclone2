@@ -175,7 +175,7 @@ figure {
 
 
 /* Responsive CSS for 380px */
-@media screen and (max-width: 380px) {
+@media screen and (max-width: 440px) {
     .men-container {
         margin-left: 0;
     }
@@ -284,7 +284,7 @@ figure {
 
 }
 
-@media screen and (max-width: 380px) {
+@media screen and (max-width: 440px) {
     .banners {
         display: flex;
         flex-direction: column;
@@ -294,7 +294,7 @@ figure {
     }
 }
 
-@media screen and (max-width: 380px) {
+@media screen and (max-width: 440px) {
     .popup-modal {
         width: 60%;
         /* margin: 0 auto 0 87px; */

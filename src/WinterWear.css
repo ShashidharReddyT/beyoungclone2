@@ -16,3 +16,19 @@
     gap: 10px;
     margin-left: 153px;
 }
+
+@media screen and (max-width: 440px) {
+    .bannersweatersub {
+        margin-bottom: 20px;
+        /* Adjust margin for better spacing */
+    }
+
+    .winterwearsub {
+        margin-left: 0;
+    }
+
+    .bannersweatersub {
+        width: 204px;
+        height: 389px;
+    }
+}

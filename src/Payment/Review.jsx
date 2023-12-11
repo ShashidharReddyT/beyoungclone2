@@ -9,6 +9,7 @@ import { useAuth } from "../Context/UserProvider";
 export default function Review() {
     const { resultData } = useAuth();
     const [totalPrice, setTotalPrice] = useState(null);
+    const [finalTotal, setFinalTotal] = useState(null);
 
     useEffect(() => {
         // Fetch the cart data and update the state
@@ -21,6 +22,17 @@ export default function Review() {
 
         fetchCartData();
     }, [resultData]);
+
+    useEffect(() => {
+        // Calculate the final total including discount and shipping charges
+        if (totalPrice !== null) {
+            const discount = 200;
+            const shippingCharges = 49;
+            const finalTotalAmount = totalPrice - discount + shippingCharges;
+            setFinalTotal(finalTotalAmount);
+        }
+    }, [totalPrice]);
+
     const payments = [
         { name: 'Card type', detail: 'Visa' },
         { name: 'Card holder', detail: 'Mr John Smith' },
@@ -41,9 +53,23 @@ export default function Review() {
                     </ListItem>
                 ))}
                 <ListItem sx={{ py: 1, px: 0 }}>
-                    <ListItemText primary="Total" />
+                    <ListItemText primary="Total Products Price" />
                     <Typography variant="subtitle1" sx={{ fontWeight: 700 }}>
                         {`₹${totalPrice}`}
+                    </Typography>
+                </ListItem>
+                <ListItem sx={{ py: 1, px: 0 }}>
+                    <ListItemText primary="Beyoung Discount" />
+                    <Typography variant="body2">{`-₹200`}</Typography>
+                </ListItem>
+                <ListItem sx={{ py: 1, px: 0 }}>
+                    <ListItemText primary="Shipping Charges" />
+                    <Typography variant="body2">{`₹49`}</Typography>
+                </ListItem>
+                <ListItem sx={{ py: 1, px: 0 }}>
+                    <ListItemText primary="Total Amount" />
+                    <Typography variant="subtitle1" sx={{ fontWeight: 700 }}>
+                        {`₹${finalTotal}`}
                     </Typography>
                 </ListItem>
             </List>

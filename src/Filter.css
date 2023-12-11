@@ -182,26 +182,26 @@ button.pink {
     text-decoration: underline;
 }
 
-@media screen and (max-width: 380px) {
+@media screen and (max-width: 440px) {
 
     .dropdowncolor.active .dropdown-contentcolor {
         grid-template-columns: repeat(4, 1fr);
         height: 190px;
         position: fixed;
-        top: 375px;
+        bottom: 75px;
         z-index: 0;
     }
 
     .dropdowncolor.active .dropdown-contentcolor1 {
         height: 80px;
         position: fixed;
-        top: 485px;
+        bottom: 75px;
     }
 
     .dropdowncolor.active .dropdown-contentcolor2 {
         grid-template-columns: repeat(2, 0fr);
         position: fixed;
-        top: 447px;
+        bottom: 75px;
         z-index: 0;
     }
 
@@ -237,10 +237,9 @@ button.pink {
 
     .filter-section {
         display: flex;
-        /* flex-direction: column; */
         position: fixed;
         z-index: 4;
-        gap: 5px;
+        gap: 30px;
         width: 100%;
         padding: 15px;
         margin-left: 0px;

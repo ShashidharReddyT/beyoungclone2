@@ -1,7 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Trackyourorder.css';
 import { FaHeart } from 'react-icons/fa';
+
 const Trackyourorder = () => {
+    const [trackingId, setTrackingId] = useState('');
+    const [trackingStatus, setTrackingStatus] = useState('');
+
+    const handleTrackingIdChange = (event) => {
+        setTrackingId(event.target.value);
+    };
+
+    const handleTrackingSubmit = () => {
+        // You can replace this check with an actual API call to check the tracking status
+        if (trackingId === '2001539') {
+            setTrackingStatus('Your order is placed and ready for shipping');
+        } else {
+            setTrackingStatus('Invalid Tracking ID');
+        }
+    };
     return (
         <div className="Trackorder">
             <img src="https://www.beyoung.in/desktop/images/customer-shipment-track/trackinng-order-page-desktop-view.jpg" alt='image' className='trackimage' />
@@ -23,11 +39,15 @@ const Trackyourorder = () => {
                         <div className="order-slect tracking-id">
                             <strong> Enter Details</strong>
                             <div className='submitt'>
-                                <input type="text" placeholder="Enter Tracking #ID" value="" />
-                                <button>Submit</button>
+                                <input
+                                    type="text"
+                                    placeholder="Enter Tracking #ID"
+                                    value={trackingId}
+                                    onChange={handleTrackingIdChange}
+                                />
+                                <button onClick={handleTrackingSubmit}>Submit</button>
                             </div>
-                            {/* <strong style="color:red;font-weight:400">
-                        </strong> */}
+                            {trackingStatus && <p style={{ color: trackingStatus.includes('Invalid') ? 'red' : 'green' }}>{trackingStatus}</p>}
                         </div>
                     </div>
                 </div>

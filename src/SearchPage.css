@@ -32,3 +32,14 @@ p.heading-mensearch {
     display: inline-block;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
+
+
+.men-clothessearch {
+    margin-left: 40px;
+}
+
+@media (max-width: 440px) {
+    p.heading-mensearch {
+        margin-left: 0px;
+    }
+}

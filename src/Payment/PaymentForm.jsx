@@ -8,8 +8,9 @@ import Checkbox from '@mui/material/Checkbox';
 export default function PaymentForm() {
     return (
         <React.Fragment>
+            <img src="https://suncotanning.com/wp-content/uploads/2020/10/payment-600x219.jpg" alt="Payment Method" style={{ width: '100%' }} />
             <Typography variant="h6" gutterBottom>
-                Payment method
+                Payment method (Debit/Credit Card)
             </Typography>
             <Grid container spacing={3}>
                 <Grid item xs={12} md={6}>

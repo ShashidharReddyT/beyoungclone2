@@ -69,12 +69,11 @@ function ProductDetail() {
     }, [isUserLoggedIn, token]);
 
     const [showLoginModal, setShowLoginModal] = useState(false);
+    const [showAddToCartMessage, setShowAddToCartMessage] = useState(false);
 
     const handleImageClick = (image) => {
         setSelectedImage(image);
     };
-
-
 
     useEffect(() => {
         const fetchProduct = async () => {
@@ -142,12 +141,15 @@ function ProductDetail() {
                 // Assuming the API response provides the updated cart count
                 const responseData = await response.json();
 
-
                 updateCartNumber(responseData.data.items.length);
 
-
-
                 // Optionally, you can update the UI or show a success message
+                setShowAddToCartMessage(true);
+
+                // Hide the message after a certain duration (e.g., 3 seconds)
+                setTimeout(() => {
+                    setShowAddToCartMessage(false);
+                }, 3000);
             } else {
                 console.error('Failed to add product to cart');
                 // Optionally, you can handle different HTTP status codes here
@@ -257,6 +259,11 @@ function ProductDetail() {
                                 <ArrowCircleRightIcon /> buy now
                             </Link>
                         </button>
+                        {showAddToCartMessage && (
+                            <div className="popup-modal">
+                                <p>Product is succesfully added to Cart!</p>
+                            </div>
+                        )}
                     </div>
                 </div>
             </div>

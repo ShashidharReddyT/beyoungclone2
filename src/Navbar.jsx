@@ -143,40 +143,35 @@ const Navbar = () => {
     // mobilesidebar
 
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-    const [selectedCategory, setSelectedCategory] = useState(null);
-    const [isActive, setIsActive] = useState(false);
+    const [selectedCategory, setSelectedCategory] = useState('MEN');
+
 
     const handleSidebarToggle = () => {
+        console.log("Toggle sidebar");
         setIsSidebarOpen(prevState => !prevState);
     };
 
-
     const handleOverlayClick = () => {
         setIsSidebarOpen(false);
-        setSelectedCategory(null);
+        setSelectedCategory('MEN');
     };
 
     const handleCategoryClick = (category) => {
-        // If the clicked category is already selected, close the sidebar
         if (selectedCategory === category) {
             setIsSidebarOpen(false);
             setSelectedCategory(null);
-            setIsActive(false); // Reset the state when closing the sidebar
+
         } else {
-            // Otherwise, update the selected category and set isActive to true
             setSelectedCategory(category);
-            setIsActive(true);
+
         }
     };
 
-
     const handleSidebarClick = (event) => {
-        // Prevent the click on the sidebar from propagating to its parent
         event.stopPropagation();
     };
 
     useEffect(() => {
-        // Add or remove a class on the body based on the sidebar state
         if (isSidebarOpen) {
             document.body.classList.add('sidebar-open');
         } else {
@@ -184,19 +179,15 @@ const Navbar = () => {
         }
 
         const handleResize = () => {
-            // Check the screen width and set the sidebar state accordingly
             setIsSidebarOpen(window.innerWidth <= 380);
         };
 
-        // Add event listener for window resize
         window.addEventListener('resize', handleResize);
 
-        // Cleanup event listener on component unmount
         return () => {
             window.removeEventListener('resize', handleResize);
         };
     }, [isSidebarOpen]);
-
 
 
 
@@ -328,7 +319,7 @@ const Navbar = () => {
 
 
                     <Link className="searchBar" onClick={handleCartClick} to='/cart'>
-                        <img src={Carticon} alt='carticon' value={numberOfCartItems} />&#xf07a;
+                        <i className="fa badge fa-lg" value={numberOfCartItems}>&#xf07a;</i>
                     </Link>
 
                 </div>
@@ -346,7 +337,7 @@ const Navbar = () => {
                             </div>
                             <div className='menu-links'>
                                 <button
-                                    className={`link1 ${isActive ? 'active' : ''}`}
+                                    className='link1'
                                     onClick={() => handleCategoryClick('MEN')}
                                 >
                                     MEN

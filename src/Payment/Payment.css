@@ -32,7 +32,7 @@
     margin-right: 150px;
 }
 
-@media (max-width: 380px) {
+@media (max-width: 440px) {
     .navbarcart {
         flex-direction: column;
         /* Stack items vertically */

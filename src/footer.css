@@ -183,7 +183,7 @@ p.footer-heading {
   margin-top: 40px;
 }
 
-@media (max-width: 380px) {
+@media (max-width: 440px) {
   footer {
     background-color: #000;
     padding-left: -40px;
